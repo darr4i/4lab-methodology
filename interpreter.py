@@ -3,7 +3,6 @@ class Interpreter:
         self.ast = ast
 
     def interpret(self):
-        print(f"Interpreting AST: {self.ast}")
         if isinstance(self.ast, PrintNode):
             print(self.ast.value)
 
@@ -11,7 +10,7 @@ if __name__ == '__main__':
     from lexer import Lexer
     from parser import Parser, PrintNode
 
-    code = 'VISIBLE "Hello, World!"'
+    code = 'VISIBLE "Hello, World!" :)'
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(f"Tokens: {tokens}")

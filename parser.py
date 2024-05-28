@@ -28,7 +28,7 @@ class Parser:
 if __name__ == '__main__':
     from lexer import Lexer
 
-    code = 'VISIBLE "Hello, World!"'
+    code = 'VISIBLE "Hello, World!" :)'
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     

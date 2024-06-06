@@ -1,3 +1,5 @@
+from parser import PrintNode
+
 class Interpreter:
     def __init__(self, ast):
         self.ast = ast
@@ -5,6 +7,7 @@ class Interpreter:
     def interpret(self):
         if isinstance(self.ast, PrintNode):
             print(self.ast.value)
+
 
 if __name__ == '__main__':
     from lexer import Lexer
@@ -14,10 +17,10 @@ if __name__ == '__main__':
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(f"Tokens: {tokens}")
-    
+
     parser = Parser(tokens)
     ast = parser.parse()
     print(f"AST: {ast}")
-    
+
     interpreter = Interpreter(ast)
     interpreter.interpret()

@@ -23,8 +23,6 @@ class Lexer:
             ('BELL', r':o'),
             ('LITERAL_DOUBLE_QUOTE', r':"'),
             ('LITERAL_COLON', r'::'),
-            ('NUMBER', r'\b\d+\b'),
-            ('IDENTIFIER', r'\b[a-zA-Z_]\w*\b'),
             ('SKIP', r'[ \t]+'),
             ('MISMATCH', r'.'),
         ]
@@ -47,7 +45,8 @@ class Lexer:
         return self.tokens
 
 if __name__ == '__main__':
-    code = 'VISIBLE "Hello, World!" :)'
+    code = 'VISIBLE "Hello, World!" :) VISIBLE "Hi" :)'
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(tokens)
+

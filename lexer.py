@@ -8,6 +8,14 @@ class Token:
     def __repr__(self):
         return f"Token({self.type}, {self.value})"
 
+    def __eq__(self, other):
+        if isinstance(other, Token):
+            return self.type == other.type and self.value == other.value
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
 class Lexer:
     def __init__(self, source_code):
         self.source_code = source_code
@@ -49,4 +57,5 @@ if __name__ == '__main__':
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(tokens)
+
 

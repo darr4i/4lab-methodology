@@ -23,7 +23,7 @@ if __name__ == '__main__':
     from lexer import Lexer
     from parser import Parser
 
-    code = 'VISIBLE "Hello, World!" :) VISIBLE "Hi" :)'
+    code = 'VISIBLE "Hello, World!" :> VISIBLE "Hi" :)'
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(f"Tokens: {tokens}")

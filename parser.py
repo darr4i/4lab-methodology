@@ -8,12 +8,28 @@ class PrintNode(ASTNode):
     def __repr__(self):
         return f'PrintNode({self.value})'
 
+    def __eq__(self, other):
+        if isinstance(other, PrintNode):
+            return self.value == other.value
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
 class SpecialCharNode(ASTNode):
     def __init__(self, value):
         self.value = value
 
     def __repr__(self):
         return f'SpecialCharNode({self.value})'
+
+    def __eq__(self, other):
+        if isinstance(other, SpecialCharNode):
+            return self.value == other.value
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
 class Parser:
     def __init__(self, tokens):

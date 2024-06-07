@@ -8,6 +8,14 @@ class Token:
     def __repr__(self):
         return f"Token({self.type}, {self.value})"
 
+    def __eq__(self, other):
+        if isinstance(other, Token):
+            return self.type == other.type and self.value == other.value
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
 class Lexer:
     def __init__(self, source_code):
         self.source_code = source_code
@@ -23,8 +31,6 @@ class Lexer:
             ('BELL', r':o'),
             ('LITERAL_DOUBLE_QUOTE', r':"'),
             ('LITERAL_COLON', r'::'),
-            ('NUMBER', r'\b\d+\b'),
-            ('IDENTIFIER', r'\b[a-zA-Z_]\w*\b'),
             ('SKIP', r'[ \t]+'),
             ('MISMATCH', r'.'),
         ]
@@ -47,7 +53,8 @@ class Lexer:
         return self.tokens
 
 if __name__ == '__main__':
-    code = 'VISIBLE "Hello, World!" :)'
+    code = 'VISIBLE "Hello, World!" :) VISIBLE "Hi" :)'
     lexer = Lexer(code)
     tokens = lexer.tokenize()
     print(tokens)
+

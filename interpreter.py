@@ -32,7 +32,6 @@ if __name__ == '__main__':
     ast = parser.parse()
     print(f"AST: {ast}")
 
-    # Інтерпретація AST
     interpreter = Interpreter(ast)
     interpreter.interpret()
 
